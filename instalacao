@@ -1,0 +1,50 @@
+#1 Atualize os pacotes do sistema:
+sudo apt update
+
+#2 Instale o Docker Compose:
+sudo apt install docker-compose -y
+
+#3 verifique a versão da instalação do Docker Compose:
+docker-compose --version
+
+#4 Crie o arquivo docker-compose.yml:
+ nano docker-compose.yml
+
+--Dentro do editor, insira o seguinte conteúdo no arquivo:
+version: "3.8"
+
+services:
+#MariaDB Container
+  mariadb:
+    image: mariadb:10.7
+    container_name: mariadb
+    hostname: mariadb
+    environment:
+      - MARIADB_ROOT_PASSWORD=senha
+      - MARIADB_DATABASE=glpidb
+      - MARIADB_USER=glpi_user
+      - MARIADB_PASSWORD=glpi
+
+#GLPI Container
+  glpi:
+    image: diouxx/glpi
+    container_name : glpi
+    hostname: glpi
+    ports:
+      - "80:80"
+
+##Salve com Ctrl+o, Enter e depois Ctrl+x para sair.
+
+#5 Inicie os containers com o Docker Compose:
+docker-compose up
+
+#8 Verifique os containers em execução:
+docker ps -a
+
+#9 Caso algum dos containers não tenha iniciado, você pode iniciá-los manualmente com os seguintes comandos:
+docker start mariadb
+docker start glpi
+
+##abra o browser com o IP da vm e instale o glpi (bem intuítivo).
+##Se quiser, crie um app para android no link: https://creator.kodular.io/
+
