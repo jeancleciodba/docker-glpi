@@ -47,7 +47,9 @@ docker start glpi
 
 ##abra o browser com o IP da vm e instale o glpi (bem intuítivo).
 ##Se quiser, crie um app para android no link: https://creator.kodular.io/
-##Para configurar um nome de DNS local, caso seja uma VM no virtual box, em vi /etc/hosts:
+##A linha 192.168.x.xx suporte.glpi.com.br no arquivo /etc/hosts associa o endereço IP da sua máquina virtual ao nome de 
+domínio suporte.glpi.com.br. Essa configuração permite que você acesse a máquina virtual usando o nome de domínio em vez do IP,
+o que pode ser mais conveniente:
 192.168.x.xx suporte.glpi.com.br (seu ip da VM)
 ##Na pasta C:\Windows\System32\drivers\etc edite o arquivo no final com mesmo host e DNS:
 192.168.x.xx suporte.glpi.com.br (seu ip da VM)
